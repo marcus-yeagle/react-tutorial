@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 
 function Square({ value, onSquareClick }) {
   return (
@@ -20,7 +20,10 @@ export default function Board() {
     status = 'Next player: ' + (xIsNext ? 'X' : 'O');
   }
 
-  function calculateWinner(squares: any[]) {
+  function calculateWinner(squares) {
+    // 0 1 2
+    // 3 4 5
+    // 6 7 8
     const lines = [
       [0, 1, 2],
       [3, 4, 5],
@@ -44,7 +47,7 @@ export default function Board() {
     return null;
   }
 
-  function handleClick(i: number) {
+  function handleClick(i) {
     if (squares[i] || calculateWinner(squares)) {
       return;
     }
